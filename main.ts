@@ -1,3 +1,4 @@
+let weird = 0
 function addTwoNumbers (num: number, num2: number, weird: number) {
     if (weird == 0) {
         return num + num2
@@ -8,6 +9,7 @@ function addTwoNumbers (num: number, num2: number, weird: number) {
 // normal calculation
 input.onButtonPressed(Button.A, function () {
     weird = 0
+    goFunction()
 })
 function multiplyTwoNumbers (num: number, num2: number, weird: number) {
     if (weird == 0) {
@@ -23,7 +25,7 @@ function goFunction () {
     displayFace(weird)
     basic.showNumber(multiplyTwoNumbers(8, 7, weird))
     displayFace(weird)
-    basic.showNumber(divideTwoNumbers(1, 1, weird))
+    divideTwoNumbers(1, 2, weird)
     displayFace(weird)
 }
 function displayFace (weirdValue: number) {
@@ -36,6 +38,7 @@ function displayFace (weirdValue: number) {
 // weird calculation
 input.onButtonPressed(Button.B, function () {
     weird = 1
+    goFunction()
 })
 function subtractTwoNumbers (num: number, num2: number, weird: number) {
     if (weird == 0) {
@@ -45,11 +48,12 @@ function subtractTwoNumbers (num: number, num2: number, weird: number) {
     }
 }
 function divideTwoNumbers (num: number, num2: number, weird: number) {
+    if (num2 == 0) {
+        basic.showIcon(IconNames.Sad)
+    }
     if (weird == 0) {
-        return num * num2
+        basic.showNumber(num * num2)
     } else {
-        return num * num2 + randint(1, 5)
+        basic.showNumber(num * num2 + randint(1, 5))
     }
 }
-let weird = 0
-goFunction()
