@@ -25,7 +25,7 @@ function goFunction () {
     displayFace(weird)
     basic.showNumber(multiplyTwoNumbers(8, 7, weird))
     displayFace(weird)
-    divideTwoNumbers(1, 2, weird)
+    divideTwoNumbers(1, 0, weird)
     displayFace(weird)
 }
 function displayFace (weirdValue: number) {
@@ -50,10 +50,11 @@ function subtractTwoNumbers (num: number, num2: number, weird: number) {
 function divideTwoNumbers (num: number, num2: number, weird: number) {
     if (num2 == 0) {
         basic.showIcon(IconNames.Sad)
-    }
-    if (weird == 0) {
-        basic.showNumber(num * num2)
     } else {
-        basic.showNumber(num * num2 + randint(1, 5))
+        if (weird == 0) {
+            basic.showNumber(num * num2)
+        } else {
+            basic.showNumber(num * num2 + randint(1, 5))
+        }
     }
 }
